@@ -1,0 +1,81 @@
+
+.signup-form {
+    display: block;
+    text-align: center;
+    border: 1px solid rgba(151, 150, 150, 0.5);
+    margin-top: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 30px;
+    height: 40vh;
+    width: 30vw;
+}
+
+form {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    width:20vw;
+}
+
+.form-title {
+    margin: 30px;
+}
+
+.seperator {
+    text-align: center;
+}
+
+.google-sign-in {
+    display: flex;
+    border: 1px solid gray;
+    border-radius: 40px;
+    width: 28vw;
+    height: 7vh;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.google-img img{
+    width: 20%;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 50px;
+
+}
+
+.fb-sign-in {
+    display: flex;
+    border: 1px solid gray;
+    border-radius: 40px;
+    width: 28vw;
+    height: 7vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.fb-img img {
+    width: 20%;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 35px;
+} 
+
+.my-form-control {
+    width: 300px;
+    border-radius: 3px;
+    line-height: 25px;
+    border: 0.5px solid rgba(151, 150, 150, 0.5);
+    margin-bottom: 5px;
+}
+
+.my-btn-control {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #FA6402;
+    border-radius: 5px;
+    background-color: #FA6402;
+    color: white;
+    font-size: medium;
+}

@@ -1,0 +1,43 @@
+.Header{
+    text-align: right;
+
+}
+
+.Header nav{
+    
+    line-height: 40px;
+    font-size: 20px;
+    
+}
+
+
+
+.myLinks a{
+    text-decoration: none;
+    /* color: white; */
+    margin-right: 20px;
+    padding: 5px;
+    font-size: medium;
+    margin-left: 30px;
+    
+}
+
+.logo-image{
+    width:50%;
+    margin-left: 50px;
+}
+
+nav a:hover {
+    background-color: rgba(128, 128, 128, 0.15);
+    border-radius: 5px;
+    font-weight: 41px;
+}
+
+.button-navbar span{
+    font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-size:medium;
+    text-transform: capitalize;
+    font-weight: normal;
+    /* color: white; */
+    
+}
