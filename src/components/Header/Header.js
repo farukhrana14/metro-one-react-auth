@@ -20,10 +20,12 @@ const Header = () => {
                 <Link to="/home">Home</Link>
                 <Link to="/destination">Destination</Link>
                 <Link to="/contact">Contact</Link>
+                {loggedInUser.isSignedIn ? <Link to="" onClick={()=> setLoggedInUser({})} > Sign Out </Link> : <Link to='/login'> Sign in </Link> }
                 <span className='user-name-nav'> {loggedInUser.isSignedIn && loggedInUser.name}</span>
-                {loggedInUser.isSignedIn ? <button onClick={()=> setLoggedInUser({})} >Sign Out</button> : <Link to='/login'> <button>Sign in</button> </Link> }
+                <span style={{display: 'inline-flex'}}><div className='profile-image'> {loggedInUser.isSignedIn && <img src={loggedInUser.photo} alt=""/> } </div></span>
+
                 
-                
+                                                                                                            
                 </div>
                                 
             </nav>

@@ -29,9 +29,9 @@ function App() {
               <Home />
             </Route>
 
-            <Route path='/search'>
+            <PrivateRoute path='/search'>
               <SearchResult></SearchResult>
-            </Route>
+            </PrivateRoute>
 
             <Route path='/signup'>
               <SignUp></SignUp>

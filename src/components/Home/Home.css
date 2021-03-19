@@ -1,19 +1,21 @@
-.home-div { 
+.bg-img { 
     background: url(../../images/bg-image.png) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
+
     background-repeat : "no-repeat";
     background-size : "cover";
     width: 90%;
     margin-right: auto;
     margin-left: auto;
-
+    margin-top: 10px;
     height: 90vh  
     
   }
 
   .price-card{
+    
     border-color: 2px solid orangered;
     border-radius: 10px;
     background-color: papayawhip;

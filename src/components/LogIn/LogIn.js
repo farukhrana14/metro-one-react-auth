@@ -22,7 +22,7 @@ const LogIn = () => {
         firebase.initializeApp(firebaseConfig);
     }
     //Context API consume
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext); 
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
     //State and Location for ProtectedRoute
     const history = useHistory();
@@ -30,10 +30,10 @@ const LogIn = () => {
     let { from } = location.state || { from: { pathname: "/" } };
 
     //Google Sign in
-    const provider = new firebase.auth.GoogleAuthProvider();
+    const googleProvider = new firebase.auth.GoogleAuthProvider();
     const handleGoogleSignIn = () => {
         firebase.auth()
-            .signInWithPopup(provider)
+            .signInWithPopup(googleProvider)
             .then((result) => {
 
                 const { displayName, email, photoURL } = result.user;
@@ -42,18 +42,43 @@ const LogIn = () => {
                 setUser(userResponse);
                 setLoggedInUser(userResponse);
                 history.replace(from);
-                console.log(userResponse);
-                console.log('user:', user, 'Loggedin User:', loggedInUser);
+                console.log('Google Loggedin user:', userResponse);
                 // ...
             }).catch((error) => {
                 // Handle Errors here.
                 var errorCode = error.code;
                 var errorMessage = error.message;
-                console.log('Errors:', errorCode, errorMessage);
-                // ...
+                console.log('Google Login Error:', errorCode, errorMessage);
+
             });
 
     }
+
+    //facebook Sign in
+    const fbProvider = new firebase.auth.FacebookAuthProvider();
+    
+    const handleFbSignIn = () => {
+        firebase.auth()
+        .signInWithPopup(fbProvider)
+        .then((result) => {
+            const { displayName, email, photoURL } = result.user;
+            const userResponse = { isSignedIn: true, name: displayName, email: email, photo: photoURL, success: true }
+           
+            setUser(userResponse);
+            setLoggedInUser(userResponse);
+            history.replace(from);
+            console.log('Facebook Loggedin user:', userResponse);
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log('Facebook Login Error:', errorCode, errorMessage);
+        });
+    }
+
+
+
+
 
     return (
         <div>
@@ -65,7 +90,7 @@ const LogIn = () => {
                     <input className='my-form-control' type="password" name='password' placeholder='Password' autoComplete="current-password" />
                     <br />
                     <input className='my-btn-control' type="button" value="Create an Account" />
-                    <p>Don't have an account?  <Link to="/signup">Create and account</Link>   </p>
+                    <p>Don't have an account?  <Link to="/signup">Create an account</Link>   </p>
 
 
                 </form>
@@ -86,7 +111,7 @@ const LogIn = () => {
                 </div>
             </div>
             <br />
-            <div className='fb-sign-in'>
+            <div onClick={handleFbSignIn} className='fb-sign-in'>
                 <div className='fb-img'>
                     <img src={facebook} alt="" />
                 </div>

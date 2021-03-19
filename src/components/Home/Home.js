@@ -7,6 +7,7 @@ import taka from '../../images/taka-symbol.png'
 const Home = () => {
 
     return (
+        <div className='bg-img'>
         <div className='home-div'>
             <div className="price-card price-one-time">
                 <h2>ONE TIME TICKET</h2>
@@ -32,6 +33,7 @@ const Home = () => {
                 <p className='price-text'> <img style={{width:'30px'}} src={taka} alt=""/> 9000</p>
             </div>
 
+        </div>
         </div>
     );
 };
