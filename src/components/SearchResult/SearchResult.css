@@ -1,0 +1,43 @@
+.search-result-map {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.search-result {
+    display: block;
+    background-color: lightgray;
+    border-radius: 10px;
+    width: 20vw;
+    margin-left: 10px;
+    padding: 10px;
+    height: 60vh;
+    line-height: 40%;
+}
+
+.map img {
+    width: 40vw;
+}
+
+.route {
+    background-color: tomato;
+    border-radius: 5px  ;
+    height: 60px;
+    padding: 5px;
+    color: white;
+}
+
+.ticket-price {
+    display: flex;
+    background-color: white;
+    justify-content: space-around;
+    border-radius: 5px;
+}
+
+.ticket-img img {
+    width: 20%;
+}
+
+.place {
+    text-indent: 50px;
+    font-weight: bolder;
+}

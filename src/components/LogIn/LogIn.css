@@ -63,7 +63,7 @@ form {
 } 
 
 .my-form-control {
-    width: 300px;
+    width: 100%;
     border-radius: 3px;
     line-height: 25px;
     border: 0.5px solid rgba(151, 150, 150, 0.5);

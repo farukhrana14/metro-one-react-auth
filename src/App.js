@@ -7,6 +7,7 @@ import ContactUs from './components/ContactUs/ContactUs';
 import NotFound from './components/NotFound/NotFound';
 import LogIn from './components/LogIn/LogIn';
 import SignUp from './components/SignUp/SignUp';
+import SearchResult from './components/SearchResult/SearchResult';
 
 function App() {
   return (
@@ -16,6 +17,10 @@ function App() {
         <Header></Header>
 
         <Switch>
+
+          <Route path='/search'>
+            <SearchResult></SearchResult>
+          </Route>
 
           <Route path='/signup'>
             <SignUp></SignUp>
