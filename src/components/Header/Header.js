@@ -1,10 +1,14 @@
 
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 import logo from '../../images/metro-logo-black.png'
+import { UserContext } from '../../App';
 
 const Header = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    console.log('From Header.js', loggedInUser);
+
     return (
         <div className='Header '>
             <nav style={{display: 'flex'}}>
@@ -16,8 +20,10 @@ const Header = () => {
                 <Link to="/home">Home</Link>
                 <Link to="/destination">Destination</Link>
                 <Link to="/contact">Contact</Link>
-                <Link to="/login">Log In</Link>
-                <Link to="/signup">Sign up</Link>
+                <span className='user-name-nav'> {loggedInUser.isSignedIn && loggedInUser.name}</span>
+                {loggedInUser.isSignedIn ? <button onClick={()=> setLoggedInUser({})} >Sign Out</button> : <Link to='/login'> <button>Sign in</button> </Link> }
+                
+                
                 </div>
                                 
             </nav>

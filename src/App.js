@@ -8,51 +8,58 @@ import NotFound from './components/NotFound/NotFound';
 import LogIn from './components/LogIn/LogIn';
 import SignUp from './components/SignUp/SignUp';
 import SearchResult from './components/SearchResult/SearchResult';
+import { createContext, useState } from 'react';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+
+export const UserContext = createContext();
+
 
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState({});
+  console.log('From App.js:', loggedInUser);
+
   return (
     <div className="App">
+      <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+        <Router>
 
-      <Router>
-        <Header></Header>
+          <Header></Header>
+          <Switch>
+            <Route path='/home'>
+              <Home />
+            </Route>
 
-        <Switch>
+            <Route path='/search'>
+              <SearchResult></SearchResult>
+            </Route>
 
-          <Route path='/search'>
-            <SearchResult></SearchResult>
-          </Route>
+            <Route path='/signup'>
+              <SignUp></SignUp>
+            </Route>
 
-          <Route path='/signup'>
-            <SignUp></SignUp>
-          </Route>
+            <Route path='/login'>
+              <LogIn></LogIn>
+            </Route>
+            
+            <PrivateRoute path='/destination'>
+              <Destination></Destination>
+            </PrivateRoute>
 
-          <Route path='/login'>
-            <LogIn></LogIn>
-          </Route>
+            <Route path='/contact'>
+              <ContactUs></ContactUs>
+            </Route>
 
-          <Route path='/destination'>
-            <Destination></Destination>
-          </Route>
+            <Route exact path='/'>
+              <Home></Home>
+            </Route>
 
-          <Route path='/contact'>
-            <ContactUs></ContactUs>
-          </Route>
+            <Route path='*'>
+              <NotFound></NotFound>
+            </Route>
 
-          <Route path='/home'>
-            <Home />
-          </Route>
-
-          <Route exact path='/'>
-            <Home></Home>
-          </Route>
-
-          <Route path='*'>
-            <NotFound></NotFound>
-          </Route>
-
-        </Switch>
-      </Router>
-
+          </Switch>
+        </Router>
+      </UserContext.Provider>
 
     </div>
   );
