@@ -4,7 +4,7 @@ import { useGoogleMaps } from 'react-hook-google-maps';
 const Maps = () => {
 
   const {ref, map, google} = useGoogleMaps(
-    "AIzaSyAInpQ8uyETz65p986MMu-My-YVMMDBD94", {
+    "AIzaSyAfh95U6zJsgR_tmkK8ukPmfSirJgUwQdY", {
       center: { lat: 23.777176, lng: 90.399452 },
       zoom: 10, },
   )

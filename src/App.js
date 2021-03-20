@@ -13,25 +13,25 @@ import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 
 export const UserContext = createContext();
 
-
 function App() {
+
   const [loggedInUser, setLoggedInUser] = useState({});
+
   console.log('From App.js:', loggedInUser);
 
   return (
     <div className="App">
       <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
         <Router>
-
           <Header></Header>
           <Switch>
             <Route path='/home'>
               <Home />
             </Route>
 
-            <PrivateRoute path='/search'>
+            <Route path='/search'>
               <SearchResult></SearchResult>
-            </PrivateRoute>
+            </Route>
 
             <Route path='/login'>
               <LogIn></LogIn>
@@ -59,6 +59,7 @@ function App() {
 
           </Switch>
         </Router>
+        
       </UserContext.Provider>
 
     </div>

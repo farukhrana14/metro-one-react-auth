@@ -85,9 +85,6 @@ const LogIn = () => {
     // Validation when SignIn / SignUp with Email Password
     const handleBlur = (e) => {
 
-        const newUserInfo = { ...user };
-        newUserInfo[e.target.name] = e.target.value;
-        setUser(newUserInfo);
 
         let isFieldValid = true;
         if (e.target.name === 'email') {
