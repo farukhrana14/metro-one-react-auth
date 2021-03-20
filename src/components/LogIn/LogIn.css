@@ -81,3 +81,10 @@ form {
     color: white;
     font-size: medium;
 }
+
+.error-message {
+    color: red;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: small;
+}
