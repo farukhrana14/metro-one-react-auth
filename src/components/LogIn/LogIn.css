@@ -74,7 +74,7 @@ form {
 
 .my-btn-control {
     width: 100%;
-    height: 50px;
+    height: 40px;
     border: 1px solid #FA6402;
     border-radius: 5px;
     background-color: #FA6402;
@@ -87,4 +87,9 @@ form {
     margin-top: 0px;
     margin-bottom: 0px;
     font-size: small;
+}
+
+.text-create-account {
+    font-size: small;
+
 }

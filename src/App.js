@@ -9,6 +9,7 @@ import LogIn from './components/LogIn/LogIn';
 import SearchResult from './components/SearchResult/SearchResult';
 import { createContext, useState } from 'react';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 
 export const UserContext = createContext();
 
@@ -42,6 +43,10 @@ function App() {
 
             <Route path='/contact'>
               <ContactUs></ContactUs>
+            </Route>
+
+            <Route path='/privacy'>
+              <PrivacyPolicy></PrivacyPolicy>
             </Route>
 
             <Route exact path='/'>

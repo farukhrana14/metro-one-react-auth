@@ -105,11 +105,11 @@ const LogIn = () => {
                     <input className='my-form-control' type="password" onBlur={handleBlur} name='password' placeholder='Password' autoComplete="current-password" required />
                     <br />
                     {newUser && <input className='my-form-control' type="password" onBlur={handleBlur} name='confirmPassword' placeholder='Confirm Password' autoComplete="new-password" required />}
-                    {(user.confirmPassword & user.password) && (user.password !== user.confirmPassword) ? <p className='error-message'>Password Mismatch</p> : null}
+                    {(user.confirmPassword & user.password) && (user.password !== user.confirmPassword) ? <p className='error-message'>Confirm Password Mismatch</p> : null}
 
                     <input className='my-btn-control' type="button" value="Create an Account" />
 
-                    <label htmlFor="newUser">Don't have an account? Create an account </label>
+                    <label className='text-create-account' htmlFor="newUser">Don't have an account? Create an account </label>
                     <input type="checkbox" onChange={() => setNewUser(!newUser)} name="newUser" id="" />
 
 
