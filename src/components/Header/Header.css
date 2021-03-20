@@ -55,6 +55,21 @@ nav a:hover {
     font-size: medium;
     margin-left: 30px;
     color: #551A8B;
-    
-    
+}
+
+.no-pic {
+    text-decoration: none;
+    /* color: white; */
+    margin-right: 20px;
+    padding: 5px;
+    font-size: medium;
+    margin-left: 30px;
+    color: #551A8B;
+}
+
+.sign-button {
+    background-color:#FA6402;
+    border-radius: 5px;
+    color: white;
+    padding: 5px;
 }

@@ -86,18 +86,78 @@ const LogIn = () => {
         setUser(newUserInfo);
 
         // console.log(user);
+        // Validate here
+    }
 
+    const handleSubmit = (e) => {
+        if (newUser && user.email && user.password) {
+            firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
+                .then(result => {
+
+                    const { displayName, email, photoURL } = result.user;
+                    const userResponse = { isSignedIn: true, name: displayName, email: email, photo: photoURL, success: true }
+
+                    setUser(userResponse);
+                    setLoggedInUser(userResponse);
+                    history.replace(from);
+                    console.log('Email Signup successful:', user);
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.log('Sign up with Email Error:', errorCode, errorMessage);
+                });
+        }
+        // Not New User = Sign In
+        if (!newUser && user.email && user.password) {
+            firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
+                .then(result => {
+
+                    const { displayName, email, photoURL } = result.user;
+                    const userResponse = { isSignedIn: true, name: displayName, email: email, photo: photoURL, success: true }
+
+                    setUser(userResponse);
+                    setLoggedInUser(userResponse);
+                    history.replace(from);
+                    console.log('Email Signup successful:', user);
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.log('Sign up with Email Error:', errorCode, errorMessage);
+                });
+        }
+        e.preventDefault();
+    }
+
+    //signout 
+    const handleSignOut = () => {
+        firebase.auth().signOut().then(() => {
+            // Sign-out successful.
+            const signedOutUser = {
+                isSignedIn: false,
+                name: '',
+                email: '',
+                photo: '',
+                error: '',
+                success: false
+            }
+            setUser(signedOutUser);
+            setLoggedInUser(signedOutUser);
+          }).catch((error) => {
+                console.log('Sign Out Error:', error);
+            // An error happened.
+          });
+          
     }
 
 
-   
 
-   
     return (
         <div>
             <div className='signup-form'>
                 {newUser ? <h2 className='form-title'>Create Account</h2> : <h2 className='form-title'>Sign In </h2>}
-                <form >
+                <form onSubmit={handleSubmit}>
                     {newUser && <input className='my-form-control' type="text" onBlur={handleBlur} name='name' placeholder='Your Name' autoComplete="username" required />}
                     <br />
                     <input className='my-form-control' type="text" onBlur={handleBlur} name='email' placeholder='Your Email' autoComplete="email" required />
@@ -107,10 +167,11 @@ const LogIn = () => {
                     {newUser && <input className='my-form-control' type="password" onBlur={handleBlur} name='confirmPassword' placeholder='Confirm Password' autoComplete="new-password" required />}
                     {(user.confirmPassword & user.password) && (user.password !== user.confirmPassword) ? <p className='error-message'>Confirm Password Mismatch</p> : null}
 
-                    <input className='my-btn-control' type="button" value="Create an Account" />
 
-                    <label className='text-create-account' htmlFor="newUser">Don't have an account? Create an account </label>
+                    <input className='my-btn-control' type="submit" value={newUser ? 'Sign up' : 'Sign in'} />
+                    {!newUser ? <label className='text-create-account' htmlFor="newUser"> Don't have an account? Create an account </label> : <label className='text-create-account' htmlFor="newUser"> <p> Have account? Unchek to sign in</p> </label>}
                     <input type="checkbox" onChange={() => setNewUser(!newUser)} name="newUser" id="" />
+                    <p style={{ color: 'red' }}>{user.error}</p>
 
 
                 </form>
