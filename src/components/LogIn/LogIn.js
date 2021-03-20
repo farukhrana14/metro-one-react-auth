@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { UserContext } from "../../App";
-import { Link, useHistory, useLocation } from 'react-router-dom';
+import {useHistory, useLocation } from 'react-router-dom';
 import './LogIn.css';
 import google from '../../images/googleIcon.png'
 import facebook from '../../images/fbIcon.png'
@@ -9,7 +9,7 @@ import "firebase/auth";
 import firebaseConfig from './firebase.config';
 
 const LogIn = () => {
-
+    const [newUser, setNewUser] = useState(false);
     const [user, setUser] = useState({
         isSignedIn: false,
         name: '',
@@ -56,24 +56,24 @@ const LogIn = () => {
 
     //facebook Sign in
     const fbProvider = new firebase.auth.FacebookAuthProvider();
-    
+
     const handleFbSignIn = () => {
         firebase.auth()
-        .signInWithPopup(fbProvider)
-        .then((result) => {
-            const { displayName, email, photoURL } = result.user;
-            const userResponse = { isSignedIn: true, name: displayName, email: email, photo: photoURL, success: true }
-           
-            setUser(userResponse);
-            setLoggedInUser(userResponse);
-            history.replace(from);
-            console.log('Facebook Loggedin user:', userResponse);
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log('Facebook Login Error:', errorCode, errorMessage);
-        });
+            .signInWithPopup(fbProvider)
+            .then((result) => {
+                const { displayName, email, photoURL } = result.user;
+                const userResponse = { isSignedIn: true, name: displayName, email: email, photo: photoURL, success: true }
+
+                setUser(userResponse);
+                setLoggedInUser(userResponse);
+                history.replace(from);
+                console.log('Facebook Loggedin user:', userResponse);
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log('Facebook Login Error:', errorCode, errorMessage);
+            });
     }
 
 
@@ -83,14 +83,20 @@ const LogIn = () => {
     return (
         <div>
             <div className='signup-form'>
-                <h2 className='form-title'>Log In </h2>
+                {newUser ? <h2 className='form-title'>Create an Account</h2> : <h2 className='form-title'>Log In </h2>}
                 <form >
+                    {newUser && <input className='my-form-control' type="text" name='name' placeholder='Your Name' />
+}                    <br />
                     <input className='my-form-control' type="text" name='email' placeholder='Your Email' autoComplete="email" />
                     <br />
                     <input className='my-form-control' type="password" name='password' placeholder='Password' autoComplete="current-password" />
                     <br />
+                    {newUser && <input className='my-form-control' type="password" name='confirmPassword' placeholder='Confirm Password' autoComplete="new-password" />
+}                    <br />
                     <input className='my-btn-control' type="button" value="Create an Account" />
-                    <p>Don't have an account?  <Link to="/signup">Create an account</Link>   </p>
+                    
+                    <label htmlFor="newUser">Don't have an account? Create an account </label>
+                    <input type="checkbox" onChange={() => setNewUser(!newUser)} name="newUser" id="" />
 
 
                 </form>

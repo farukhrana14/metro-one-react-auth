@@ -1,5 +1,5 @@
 import React from 'react';
-import map from '../../images/map.png';
+import map from '../../images/map.jpg';
 import './SearchResult.css';
 import ticket from '../../images/ticket.png';
 
