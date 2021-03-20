@@ -19,6 +19,8 @@ const LogIn = () => {
         confirmPassword: ''
     })
 
+    const [error, setError] = useState(false);
+
     if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig);
     }
@@ -49,6 +51,7 @@ const LogIn = () => {
                 // Handle Errors here.
                 var errorCode = error.code;
                 var errorMessage = error.message;
+                setError(errorMessage);
                 console.log('Google Login Error:', errorCode, errorMessage);
 
             });
@@ -73,6 +76,7 @@ const LogIn = () => {
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
+                setError(errorMessage);
                 console.log('Facebook Login Error:', errorCode, errorMessage);
             });
     }
@@ -105,6 +109,7 @@ const LogIn = () => {
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
+                    setError(errorMessage);
                     console.log('Sign up with Email Error:', errorCode, errorMessage);
                 });
         }
@@ -124,6 +129,7 @@ const LogIn = () => {
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
+                    setError(errorMessage);
                     console.log('Sign up with Email Error:', errorCode, errorMessage);
                 });
         }
@@ -171,7 +177,7 @@ const LogIn = () => {
                     <input className='my-btn-control' type="submit" value={newUser ? 'Sign up' : 'Sign in'} />
                     {!newUser ? <label className='text-create-account' htmlFor="newUser"> Don't have an account? Create an account </label> : <label className='text-create-account' htmlFor="newUser"> <p> Have account? Unchek to sign in</p> </label>}
                     <input type="checkbox" onChange={() => setNewUser(!newUser)} name="newUser" id="" />
-                    <p style={{ color: 'red' }}>{user.error}</p>
+                    <p style={{ color: 'red' }}>{error}</p>
 
 
                 </form>
