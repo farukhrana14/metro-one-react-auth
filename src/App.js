@@ -29,17 +29,17 @@ function App() {
               <Home />
             </Route>
 
-            <Route path='/search'>
+            <PrivateRoute path='/search'>
               <SearchResult></SearchResult>
-            </Route>
+            </PrivateRoute>
 
             <Route path='/login'>
               <LogIn></LogIn>
             </Route>
             
-            <Route path='/destination'>
+            <PrivateRoute path='/destination'>
               <Destination></Destination>
-            </Route>
+            </PrivateRoute>
 
             <Route path='/contact'>
               <ContactUs></ContactUs>

@@ -2,7 +2,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
-import logo from '../../images/metro-logo-black.png'
+import logo from '../../images/logo.png'
 import { UserContext } from '../../App';
 //firebase for signout 
 import firebase from "firebase/app";

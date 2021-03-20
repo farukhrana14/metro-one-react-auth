@@ -8,7 +8,7 @@ import './Destination.css';
 
 const Destination = () => {
 
-    const [destination, setDestination] = useState({ from: '', to: '' })
+    const [destination, setDestination] = useState({ from: '', to: '', date: '', time: '' })
 
     const handleBlur = (e) => {
         const newDestination = { ...destination };
@@ -32,7 +32,7 @@ const Destination = () => {
                     <br />
                     <br />
                     <br />
-                    <input className='my-form-control-destination' type="date" id="journey-date" name="date" />
+                    <input className='my-form-control-destination' onBlur={handleBlur} type="date" id="journey-date" name="date" />
                     <br />
                     <br />
                     <br />
@@ -40,7 +40,7 @@ const Destination = () => {
                     <br />
                     <br />
                     <br />
-                    <input className='my-form-control-destination' type="time" id="jorney-time" name="time"></input>
+                    <input className='my-form-control-destination' onBlur={handleBlur} type="time" id="jorney-time" name="time"></input>
 
                    
                     <br />

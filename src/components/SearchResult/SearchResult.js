@@ -2,7 +2,7 @@ import React from 'react';
 import './SearchResult.css';
 import ticket from '../../images/ticket.png';
 import Maps from '../Maps/Maps';
-import { useLocation, useParams } from 'react-router';
+import { useLocation } from 'react-router';
 
 const SearchResult = () => {
 
@@ -18,10 +18,29 @@ const SearchResult = () => {
                 <div className='search-result'>
 
                     <div className='route'>
-                        <p className='text-cap'>Starts: {destination.from}</p>
-                        <p className='text-cap'>Ends: {destination.to}</p>
+                        <div className="timeline">
+
+                            <div className="container right">
+                                <div className="content">
+                                    <p className='text-cap'>Starts: {destination.from}</p>
+                                </div>
+                            </div>
+                            <div className="container right">
+                                <div className="content">
+                                    <p className='text-cap'>Ends: {destination.to}</p>
+
+                                </div>
+                            </div>
+
+                        </div>
+
                     </div>
                     <br />
+                    <div className='time-date'>
+                        <p> <strong>Date and Time of Travel </strong></p>
+                        <p>Date: {destination.date}</p>
+                        <p>Time: {destination.time}</p>
+                    </div>
 
                     <div className='ticket-price'>
                         <div className='ticket-img'> <img src={ticket} alt="" /> </div>
