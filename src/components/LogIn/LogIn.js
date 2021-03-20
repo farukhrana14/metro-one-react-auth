@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { UserContext } from "../../App";
-import {useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import './LogIn.css';
 import google from '../../images/googleIcon.png'
 import facebook from '../../images/fbIcon.png'
@@ -79,33 +79,24 @@ const LogIn = () => {
 
 
     // Validation when SignIn / SignUp with Email Password
-
-           
     const handleBlur = (e) => {
-        console.log('handle Blue:', e.target.name, e.target.value );
-      const newUserInfo = { ...user };
-      newUserInfo[e.target.name] = e.target.value;
-      setUser(newUserInfo);
-      
-      console.log(user);
-        
+        // console.log('handle Blue:', e.target.name, e.target.value);
+        const newUserInfo = { ...user };
+        newUserInfo[e.target.name] = e.target.value;
+        setUser(newUserInfo);
+
+        // console.log(user);
+
     }
 
-    
-    if (user.confirmPassword & user.password){
-         
-        if (user.password !== user.confirmPassword) {
-            // alert('Error Message');
-        } 
-        
-    }
-    
-    // {(user.password !== null && user.confirmPassword !== null && user.password !== user.confirmPassword) ? <p> <span className='error-message'>Password Mismatch</span></p>  : '' }
 
+   
+
+   
     return (
         <div>
             <div className='signup-form'>
-                {newUser ? <h2 className='form-title'>Create an Account</h2> : <h2 className='form-title'>Log In </h2>}
+                {newUser ? <h2 className='form-title'>Create Account</h2> : <h2 className='form-title'>Sign In </h2>}
                 <form >
                     {newUser && <input className='my-form-control' type="text" onBlur={handleBlur} name='name' placeholder='Your Name' autoComplete="username" required />}
                     <br />
@@ -113,11 +104,11 @@ const LogIn = () => {
                     <br />
                     <input className='my-form-control' type="password" onBlur={handleBlur} name='password' placeholder='Password' autoComplete="current-password" required />
                     <br />
-                    {newUser && <input className='my-form-control' type="password" onBlur={handleBlur}  name='confirmPassword' placeholder='Confirm Password' autoComplete="new-password" required />}                    
-                    {(user.confirmPassword & user.password) && (user.password !== user.confirmPassword) ? <p className='error-message'>Password Mismatch</p> : null }
-                    
+                    {newUser && <input className='my-form-control' type="password" onBlur={handleBlur} name='confirmPassword' placeholder='Confirm Password' autoComplete="new-password" required />}
+                    {(user.confirmPassword & user.password) && (user.password !== user.confirmPassword) ? <p className='error-message'>Password Mismatch</p> : null}
+
                     <input className='my-btn-control' type="button" value="Create an Account" />
-                    
+
                     <label htmlFor="newUser">Don't have an account? Create an account </label>
                     <input type="checkbox" onChange={() => setNewUser(!newUser)} name="newUser" id="" />
 
