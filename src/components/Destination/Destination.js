@@ -1,8 +1,10 @@
 import React from 'react';
 import map from '../../images/map.jpg';
+import Maps from '../Maps/Maps';
+
 import './Destination.css';
 
-
+{/* <img src={map} alt="" /> */}
 const Destination = () => {
     
     const handleSearch = () => {
@@ -32,9 +34,9 @@ const Destination = () => {
                     
                     
                 </div>
-
+                
                 <div className='map'>
-                    <img src={map} alt="" />
+                    <Maps></Maps>
                 </div>
             </div>
         </div>

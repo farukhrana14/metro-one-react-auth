@@ -52,7 +52,7 @@ const LogIn = () => {
                 var errorCode = error.code;
                 var errorMessage = error.message;
                 setError(errorMessage);
-                console.log('Google Login Error:', errorCode, errorMessage);
+                // console.log('Google Login Error:', errorCode, errorMessage);
 
             });
 
@@ -84,13 +84,29 @@ const LogIn = () => {
 
     // Validation when SignIn / SignUp with Email Password
     const handleBlur = (e) => {
-        // console.log('handle Blue:', e.target.name, e.target.value);
+
         const newUserInfo = { ...user };
         newUserInfo[e.target.name] = e.target.value;
         setUser(newUserInfo);
 
-        // console.log(user);
-        // Validate here
+        let isFieldValid = true;
+        if (e.target.name === 'email') {
+            const isEmailValid = /\S+@\S+\.\S+/.test(e.target.value);
+            isFieldValid = isEmailValid;
+        }
+
+        if (e.target.value === 'password') {
+            // Min 6 characters, min 1 number
+            const isPasswordValid = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d](?=.{6,})$/.test(e.target.value);
+            isFieldValid = isPasswordValid;
+            console.log('Password:', e.target.value, isPasswordValid );
+        }
+        if (isFieldValid) {
+            const newUserInfo = { ...user };
+            newUserInfo[e.target.name] = e.target.value;
+            setUser(newUserInfo);
+        }
+
     }
 
     const handleSubmit = (e) => {
@@ -140,7 +156,7 @@ const LogIn = () => {
 
     //Update Name for sign up with Email
     //send user name / info to firebase when using custom sign up 
-    
+
     const updateUserName = name => {
         const user = firebase.auth().currentUser;
 
