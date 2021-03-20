@@ -94,6 +94,7 @@ const LogIn = () => {
     }
 
     const handleSubmit = (e) => {
+        //new user        
         if (newUser && user.email && user.password) {
             firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
                 .then(result => {
@@ -104,18 +105,19 @@ const LogIn = () => {
                     setUser(userResponse);
                     setLoggedInUser(userResponse);
                     history.replace(from);
-                    console.log('Email Signup successful:', user);
+                    updateUserName(userResponse.name)
+                    console.log('New User Sign up with Email successful:', user);
                 })
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
                     setError(errorMessage);
-                    console.log('Sign up with Email Error:', errorCode, errorMessage);
+                    console.log('New User Sign up with Email Error:', errorCode, errorMessage);
                 });
         }
         // Not New User = Sign In
         if (!newUser && user.email && user.password) {
-            firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
+            firebase.auth().signInWithEmailAndPassword(user.email, user.password)
                 .then(result => {
 
                     const { displayName, email, photoURL } = result.user;
@@ -124,16 +126,32 @@ const LogIn = () => {
                     setUser(userResponse);
                     setLoggedInUser(userResponse);
                     history.replace(from);
-                    console.log('Email Signup successful:', user);
+                    console.log('Existing User Email SignIn successful:', user);
                 })
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
                     setError(errorMessage);
-                    console.log('Sign up with Email Error:', errorCode, errorMessage);
+                    console.log('Existing User Email SignIn Error:', errorCode, errorMessage);
                 });
         }
         e.preventDefault();
+    }
+
+    //Update Name for sign up with Email
+    //send user name / info to firebase when using custom sign up 
+    
+    const updateUserName = name => {
+        const user = firebase.auth().currentUser;
+
+        user.updateProfile({
+            displayName: name
+        }).then(function () {
+            console.log('User Name Updated successful');
+        }).catch(function (error) {
+            setError(error)
+            console.log(error);
+        });
     }
 
     //signout 
@@ -150,12 +168,16 @@ const LogIn = () => {
             }
             setUser(signedOutUser);
             setLoggedInUser(signedOutUser);
-          }).catch((error) => {
-                console.log('Sign Out Error:', error);
+            setNewUser(false);
+            console.log('signedout successfully');
+        }).catch((error) => {
+            setError(error);
+            console.log('Sign Out Error:', error);
             // An error happened.
-          });
-          
+        });
+
     }
+
 
 
 
