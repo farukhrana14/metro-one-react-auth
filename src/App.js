@@ -1,6 +1,6 @@
 import './App.css';
 import Header from './components/Header/Header';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from './components/Home/Home';
 import Destination from './components/Destination/Destination';
 import ContactUs from './components/ContactUs/ContactUs';
@@ -10,7 +10,6 @@ import SearchResult from './components/SearchResult/SearchResult';
 import { createContext, useState } from 'react';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
-import fakeData from './fakeData/fakeData.json';
 
 export const UserContext = createContext();
 
@@ -30,17 +29,17 @@ function App() {
               <Home></Home>
             </Route>
 
-            <Route path='/search'>
+            <PrivateRoute path='/search'>
               <SearchResult></SearchResult>
-            </Route>
+            </PrivateRoute>
 
             <Route path='/login'>
               <LogIn></LogIn>
             </Route>
 
-            <Route path='/destination'>
+            <PrivateRoute path='/destination'>
               <Destination></Destination>
-            </Route>
+            </PrivateRoute>
 
             
             <Route path='/contact'>
