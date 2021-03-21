@@ -46,7 +46,7 @@ const headerSignOut = () => {
                 
                 <div className='myLinks'>
                 <Link to="/home">Home</Link>
-                <Link to="/destination">Destination</Link>
+                
                 <Link to="/contact">Contact</Link>
                 {loggedInUser.isSignedIn ? <Link to="" onClick={()=> headerSignOut()} > <span className='sign-button'>Sign Out</span> </Link> : <Link to='/login'> <span className='sign-button'>Sign in</span> </Link> }
                 <span className='user-name-nav'> {loggedInUser.isSignedIn && loggedInUser.name ? loggedInUser.name : <span> {loggedInUser.isSignedIn && loggedInUser.email} </span>  }</span>

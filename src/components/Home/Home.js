@@ -1,13 +1,13 @@
 
-import React, { useContext } from 'react';
+import React, {useState } from 'react';
 import './Home.css';
-import { UserContext } from '../../App';
 import Card from '../Card/Card';
-
+import fakeData from '../../fakeData/fakeData.json';
 
 const Home = () => {
-    //Context API consume
-    const [data, setData] = useContext(UserContext);
+    
+    const [data, setData] = useState(fakeData);
+    
     
     
     return (
@@ -15,7 +15,7 @@ const Home = () => {
             <div className='home-div'>
 
             {
-               data?.map(pd => <Card key={pd.id} pd={pd}></Card>)
+              data && data.map(pd => <Card key={pd.id} pd={pd}></Card>)
             }
 
             </div>

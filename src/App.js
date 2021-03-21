@@ -17,13 +17,12 @@ export const UserContext = createContext();
 function App() {
 
   const [loggedInUser, setLoggedInUser] = useState({});
-  const [data, setData] = useState(fakeData);
-
+  
   
 
   return (
     <div className="App">
-      <UserContext.Provider value={[loggedInUser, setLoggedInUser], [data, setData]}>
+      <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
         <Router>
           <Header></Header>
           <Switch>
@@ -31,22 +30,19 @@ function App() {
               <Home></Home>
             </Route>
 
-            <PrivateRoute path='/search'>
+            <Route path='/search'>
               <SearchResult></SearchResult>
-            </PrivateRoute>
+            </Route>
 
             <Route path='/login'>
               <LogIn></LogIn>
             </Route>
 
-            <PrivateRoute path='/destination'>
+            <Route path='/destination'>
               <Destination></Destination>
-            </PrivateRoute>
+            </Route>
 
-            <PrivateRoute path = '/destination/:id'>
-              <Destination></Destination>
-            </PrivateRoute>
-
+            
             <Route path='/contact'>
               <ContactUs></ContactUs>
             </Route>

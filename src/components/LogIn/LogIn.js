@@ -45,14 +45,14 @@ const LogIn = () => {
                 setUser(userResponse);
                 setLoggedInUser(userResponse);
                 history.replace(from);
-                console.log('Google Loggedin user:', userResponse);
+                
                 // ...
             }).catch((error) => {
                 // Handle Errors here.
                 var errorCode = error.code;
                 var errorMessage = error.message;
                 setError(errorMessage);
-                // console.log('Google Login Error:', errorCode, errorMessage);
+                
 
             });
 
@@ -71,13 +71,13 @@ const LogIn = () => {
                 setUser(userResponse);
                 setLoggedInUser(userResponse);
                 history.replace(from);
-                console.log('Facebook Loggedin user:', userResponse);
+                
             })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 setError(errorMessage);
-                console.log('Facebook Login Error:', errorCode, errorMessage);
+                
             });
     }
 
@@ -96,7 +96,7 @@ const LogIn = () => {
             // Min 6 characters, min 1 number
             const isPasswordValid = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d](?=.{6,})$/.test(e.target.value);
             isFieldValid = isPasswordValid;
-            console.log('Password:', e.target.value, isPasswordValid );
+            
         }
         if (isFieldValid) {
             const newUserInfo = { ...user };
@@ -119,13 +119,13 @@ const LogIn = () => {
                     setLoggedInUser(userResponse);
                     history.replace(from);
                     updateUserName(userResponse.name)
-                    console.log('New User Sign up with Email successful:', user);
+                    
                 })
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
                     setError(errorMessage);
-                    console.log('New User Sign up with Email Error:', errorCode, errorMessage);
+                    
                 });
         }
         // Not New User = Sign In
@@ -139,13 +139,13 @@ const LogIn = () => {
                     setUser(userResponse);
                     setLoggedInUser(userResponse);
                     history.replace(from);
-                    console.log('Existing User Email SignIn successful:', user);
+                    
                 })
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
                     setError(errorMessage);
-                    console.log('Existing User Email SignIn Error:', errorCode, errorMessage);
+                    
                 });
         }
         e.preventDefault();
@@ -160,10 +160,10 @@ const LogIn = () => {
         user.updateProfile({
             displayName: name
         }).then(function () {
-            console.log('User Name Updated successful');
+            // console.log('User Name Updated successful');
         }).catch(function (error) {
             setError(error)
-            console.log(error);
+            
         });
     }
 
@@ -182,11 +182,9 @@ const LogIn = () => {
             setUser(signedOutUser);
             setLoggedInUser(signedOutUser);
             setNewUser(false);
-            console.log('signedout successfully');
+            // console.log('signedout successfully');
         }).catch((error) => {
             setError(error);
-            console.log('Sign Out Error:', error);
-            // An error happened.
         });
 
     }
