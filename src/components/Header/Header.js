@@ -12,7 +12,7 @@ import firebaseConfig from '../LogIn/firebase.config';
 
 const Header = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    console.log('From Header.js', loggedInUser);
+    // console.log('From Header.js', loggedInUser);
 
 
 const headerSignOut = () => {

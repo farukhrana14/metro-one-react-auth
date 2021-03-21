@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import Maps from '../Maps/Maps';
 
@@ -10,11 +10,12 @@ const Destination = () => {
 
     const [destination, setDestination] = useState({ from: '', to: '', date: '', time: '' })
 
+  
     const handleBlur = (e) => {
         const newDestination = { ...destination };
         newDestination[e.target.name] = e.target.value;
         setDestination(newDestination);
-        console.log(newDestination);
+        
     }
 
     return (

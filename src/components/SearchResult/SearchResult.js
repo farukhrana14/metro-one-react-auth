@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './SearchResult.css';
 import ticket from '../../images/ticket.png';
 import Maps from '../Maps/Maps';
-import { useLocation } from 'react-router';
+import { useLocation, useParams } from 'react-router';
+import { UserContext } from '../../App';
 
 const SearchResult = () => {
 
+    //Context API consume
+    const [data, setData] = useContext(UserContext);
+    
+
     const location = useLocation();
     const destination = location.state.destination;
-    console.log(destination);
+        
 
 
     return (

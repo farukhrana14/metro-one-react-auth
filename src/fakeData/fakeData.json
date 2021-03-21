@@ -1,0 +1,30 @@
+[
+ {
+   "id": 1,
+   "type": "One Time",
+   "price": 100,
+   "cardImage": "https://i.ibb.co/rQFsZ4R/price-card-1.png",
+   "ticket": "https://i.ibb.co/MSVdDwd/ticket-1.png"
+ },
+ {
+   "id": 2,
+   "type": "One Day",
+   "price": 500,
+   "cardImage": "https://i.ibb.co/SsZjBY2/price-card-2.png",
+   "ticket": "https://i.ibb.co/rMjqqzg/ticket2.png"
+ },
+ {
+   "id": 3,
+   "type": "Monthly",
+   "price": 1500,
+   "cardImage": "https://i.ibb.co/1shF84s/price-card-3.png",
+   "ticket": "https://i.ibb.co/178SNy3/ticket3.png"
+ },
+ {
+   "id": 4,
+   "type": "Annually",
+   "price": 9000,
+   "cardImage": "https://i.ibb.co/5vW5TLx/price-card-4.png",
+   "ticket": "https://i.ibb.co/G5qR4c4/ticket-4.png"
+ }
+]
