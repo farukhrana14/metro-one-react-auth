@@ -1,4 +1,4 @@
-# This is am assigmemt work- Assignment # 9
+# This is an assigmemt work- Assignment # 9
 
 This assignment is a SPA with  [Create React App](https://github.com/facebook/create-react-app).
 
@@ -18,4 +18,4 @@ This assignment is a SPA with  [Create React App](https://github.com/facebook/cr
 Live site: [https://metro-one-20210319.firebaseapp.com/](https://metro-one-20210319.firebaseapp.com/) to view it in the browser.
 
 Git Repo: [https://github.com/Porgramming-Hero-web-course/react-auth-farukhrana14/](https://github.com/Porgramming-Hero-web-course/react-auth-farukhrana14/) to view it in the browser.
-(Temorarily the repo will remain private)
+(Temporarily the repo will remain private)
