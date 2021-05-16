@@ -1,5 +1,5 @@
 const firebaseConfig = {
-    apiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY,
+    apiKey: "AIzaSyDge9Pg75ePvetnI4xoFWRgNXgfq-apyPc",
     authDomain: "metro-one-20210319.firebaseapp.com",
     projectId: "metro-one-20210319",
     storageBucket: "metro-one-20210319.appspot.com",
@@ -9,4 +9,5 @@ const firebaseConfig = {
 
   export default firebaseConfig;
 
-  //AIzaSyASm-jEIp8rTo-Q6RpQuCCEnkJf4IKGyl0
+  //This API key is open for any domain and be used for local and API key in firebaseConfig is for Production and restricted to firebase domain only
+   

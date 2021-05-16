@@ -5,11 +5,13 @@ const Map = (props) => {
     const { origin, destination } = props;
     const [directiponRespnse, setDirectiponRespnse] = useState(null);
 
+    console.log('MAP object', process.env.REACT_APP_GOOGLE_MAP_API_KEY) 
+
     return (
         <div>
 
             <LoadScript
-                googleMapsApiKey="AIzaSyASm-jEIp8rTo-Q6RpQuCCEnkJf4IKGyl0"
+                googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAP_API_KEY}
             >
 
                 <GoogleMap

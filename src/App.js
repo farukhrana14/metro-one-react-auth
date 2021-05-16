@@ -17,8 +17,8 @@ function App() {
 
   const [loggedInUser, setLoggedInUser] = useState({});
   
+  console.log('CLG Test Key', process.env.REACT_APP_GOOGLE_MAP_API_KEY)
   
-
   return (
     <div className="App">
       <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
