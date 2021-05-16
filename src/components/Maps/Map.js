@@ -1,15 +1,15 @@
 import { DirectionsRenderer, DirectionsService, GoogleMap, LoadScript } from '@react-google-maps/api';
 import React, { useState } from 'react';
 
-
 const Map = (props) => {
     const { origin, destination } = props;
     const [directiponRespnse, setDirectiponRespnse] = useState(null);
+
     return (
         <div>
 
             <LoadScript
-                googleMapsApiKey="AIzaSyAfh95U6zJsgR_tmkK8ukPmfSirJgUwQdY"
+                googleMapsApiKey="AIzaSyASm-jEIp8rTo-Q6RpQuCCEnkJf4IKGyl0"
             >
 
                 <GoogleMap
