@@ -1,5 +1,5 @@
 const firebaseConfig = {
-    apiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY,
+    apiKey: process.env.REACT_APP_GOOGLE_AUTH_API_KEY,
     authDomain: "metro-one-20210319.firebaseapp.com",
     projectId: "metro-one-20210319",
     storageBucket: "metro-one-20210319.appspot.com",
