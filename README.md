@@ -1,5 +1,12 @@
 # Metro One work- Assignment # 9
 
+### The site and the code:
+
+
+[Live site:] (https://metro-one-20210319.web.app/) to view it in the browser.
+
+[Git Repo:](https://github.com/farukhrana14/metro-one-react-auth) to view it in the browser.
+
 This assignment is a SPA with  [Create React App](https://github.com/facebook/create-react-app).
 
 ## Main funtionality 
@@ -12,10 +19,4 @@ This assignment is a SPA with  [Create React App](https://github.com/facebook/cr
 - Use of Google Map by react-google-map
 
 
-### The site and the code:
 
-
-Live site: [https://metro-one-20210319.firebaseapp.com/](https://metro-one-20210319.firebaseapp.com/) to view it in the browser.
-
-Git Repo: [https://github.com/Porgramming-Hero-web-course/react-auth-farukhrana14/](https://github.com/Porgramming-Hero-web-course/react-auth-farukhrana14/) to view it in the browser.
-(Temporarily the repo will remain private)
